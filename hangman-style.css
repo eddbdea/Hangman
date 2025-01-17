@@ -1,0 +1,19 @@
+div {
+    text-align: center;
+}
+
+.border {
+    display: inline-block;
+    border-bottom: 1px solid red;
+    padding: 1rem 1rem;
+    vertical-align: text-bottom;
+}
+
+h2 {
+    font-size: 45px;
+    margin: 0;
+    padding: 5px;
+    line-height: 30px;
+    height: 25px;
+    text-transform: uppercase;
+}

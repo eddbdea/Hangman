@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="hangman-style.css">
+    <title>Hangman</title>
+  </head>
+  <body>
+    <div>
+        <h1>Hangman game!</h1>
+        <div class="border">
+            <h2 id="let0" hidden>a</h2>
+        </div>
+        <div class="border">
+            <h2 id="let1" hidden>s</h2>
+        </div>
+        <div class="border">
+            <h2 id="let2" hidden>c</h2>
+        </div>
+        <div class="border">
+            <h2 id="let3" hidden>u</h2>
+        </div>
+        <div class="border">
+            <h2 id="let4" hidden>n</h2>
+        </div>
+        <div class="border">
+            <h2 id="let5" hidden>s</h2>
+        </div>
+    </div>
+    <br />
+    <div>
+        <div>
+            <input type="text" placeholder="Insert a letter from a-z" minlength="1" maxlength="1" id="letter">
+            <button id="button" onclick="submitSearchLetter()">Submit</button>
+        </div>
+        <div>
+            <h3 id="count">Lives count: 7</h3>
+        </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
