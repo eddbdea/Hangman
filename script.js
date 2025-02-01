@@ -8,7 +8,10 @@ function submitSearchLetter() {
     document.getElementById('letter').value = '';
     let index = positionChecked(letter);
     ++frq[index];
-    console.log(index);
+    gameStatus(index);
+}
+
+function gameStatus(index) {
     if(index >= 0 && index <= 5 && frq[index] === 1) {
         let p =  document.getElementById('let' + index);
         p.removeAttribute('hidden');
@@ -40,7 +43,6 @@ function positionChecked(letter) {
     let index = word.indexOf(letter);
     if (frq[index] === 1) {
         index = word.indexOf(letter, index + 1);
-        return index;
     }
     return index;
 }
