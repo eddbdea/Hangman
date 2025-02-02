@@ -1,10 +1,12 @@
 const word = ['a', 's', 'c', 'u', 'n', 's'];
-let lives = 7;
+const MAX_LIVES = 7;
+const MAX_INDEX = 5;
+let lives = MAX_LIVES;
 let correctAnswer = -1;
 const frq = new Array(word.length).fill(0);
 
 function submitSearchLetter() {
-    const letter = document.getElementById('letter').value
+    const letter = document.getElementById('letter').value;
     document.getElementById('letter').value = '';
     let index = positionChecked(letter);
     ++frq[index];
@@ -12,8 +14,8 @@ function submitSearchLetter() {
 }
 
 function gameStatus(index) {
-    if(index >= 0 && index <= 5 && frq[index] === 1) {
-        let p =  document.getElementById('let' + index);
+    if(index >= 0 && index <= MAX_INDEX && frq[index] === 1) {
+        let p = document.getElementById('let' + index);
         p.removeAttribute('hidden');
         ++correctAnswer;
         if (lives > 0 && correctAnswer === word.length - 1) {
@@ -21,8 +23,8 @@ function gameStatus(index) {
             setTimeout(function() {
                 location.reload();
             }, 3000);
-            lives = 7;
-            correctAnswer = - 1;
+            lives = MAX_LIVES;
+            correctAnswer = -1;
         }
     } else {
         --lives;
@@ -31,8 +33,8 @@ function gameStatus(index) {
             setTimeout(function() {
                 location.reload();
             }, 3000);
-            lives = 7;
-            correctAnswer = - 1;
+            lives = MAX_LIVES;
+            correctAnswer = -1;
         } else {
             document.getElementById('count').innerHTML = 'Lives count: ' + lives;
         }
