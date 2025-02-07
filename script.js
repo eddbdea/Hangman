@@ -14,7 +14,7 @@ function submitSearchLetter() {
 }
 
 function gameStatus(index) {
-    if(index >= 0 && index <= MAX_INDEX && frq[index] === 1) {
+    if (index >= 0 && index <= MAX_INDEX && frq[index] === 1) {
         let p = document.getElementById('let' + index);
         p.removeAttribute('hidden');
         ++correctAnswer;
