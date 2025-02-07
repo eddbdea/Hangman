@@ -20,7 +20,7 @@ function gameStatus(index) {
         ++correctAnswer;
         if (lives > 0 && correctAnswer === word.length - 1) {
             document.getElementById('count').innerHTML = 'You won!';
-            setTimeout(function() {
+            setTimeout(function () {
                 location.reload();
             }, 3000);
             lives = MAX_LIVES;
@@ -30,13 +30,13 @@ function gameStatus(index) {
         --lives;
         if (lives === 0 && correctAnswer < word.length) {
             document.getElementById('count').innerHTML = 'You lost!';
-            setTimeout(function() {
+            setTimeout(function () {
                 location.reload();
             }, 3000);
             lives = MAX_LIVES;
             correctAnswer = -1;
         } else {
-            document.getElementById('count').innerHTML = 'Lives count: ' + lives;
+            document.getElementById('count').innerHTML = 'Lives count:' + lives;
         }
     }
 }
