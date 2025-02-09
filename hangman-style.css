@@ -4,8 +4,9 @@ div {
 
 .border {
     display: inline-block;
-    border-bottom: 1px solid red;
-    padding: 1rem 1rem;
+    margin-right: 5px;
+    border-bottom: 1px solid black;
+    padding: 2rem 2rem;
     vertical-align: text-bottom;
 }
 
