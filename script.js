@@ -1,7 +1,7 @@
 const words = ['bag', 'apple', 'phone', 'night', 'dog', 'summer'];
 const MAX_LIVES = 7;
 const PAGE_RELOAD_SPEED = 3000;
-const lives = MAX_LIVES;
+let lives = MAX_LIVES;
 let correctAnswer = -1;
 let choosenWord = [];
 const frq = new Array();
