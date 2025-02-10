@@ -29,6 +29,7 @@ function createGameBoard() {
         h2Element.textContent = choosenWord[i];
     }
 }
+
 createGameBoard();
 
 function submitSearchLetter() {
