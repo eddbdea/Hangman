@@ -33,7 +33,7 @@ function createGameBoard() {
 createGameBoard();
 
 function submitSearchLetter() {
-    const letter = document.getElementById('letter').value;
+    let letter = document.getElementById('letter').value;
     document.getElementById('letter').value = '';
     let index = positionChecked(letter);
     ++frq[index];
@@ -45,27 +45,35 @@ function gameStatus(index) {
         const p = document.getElementById('let' + index);
         p.removeAttribute('hidden');
         ++correctAnswer;
-        if (lives > 0 && correctAnswer === choosenWord.length - 1) {
-            document.getElementById('count').innerHTML = 'You won!';
-            setTimeout(function () {
-                location.reload();
-            }, PAGE_RELOAD_SPEED);
-            lives = MAX_LIVES;
-            correctAnswer = -1;
-        }
+        isWinner();
     } else {
         --lives;
-        if (lives === 0 && correctAnswer < choosenWord.length) {
-            document.getElementById('count').innerHTML = 'You lost!';
-            setTimeout(function () {
-                location.reload();
-            }, PAGE_RELOAD_SPEED);
-            lives = MAX_LIVES;
-            correctAnswer = -1;
-        } else {
-            document.getElementById('count').innerHTML = 'Lives count:' + lives;
-        }
+        isLooser();
     }
+}
+
+function isWinner() {
+    if (lives > 0 && correctAnswer === choosenWord.length - 1) {
+        document.getElementById('count').innerHTML = 'You won!';
+        setTimeout(function () {
+            location.reload();
+        }, PAGE_RELOAD_SPEED);
+        lives = MAX_LIVES;
+        correctAnswer = -1;
+    }
+}
+
+function isLooser() {
+    if (lives === 0 && correctAnswer < choosenWord.length) {
+        document.getElementById('count').innerHTML = 'You lost!';
+        setTimeout(function () {
+            location.reload();
+        }, PAGE_RELOAD_SPEED);
+        lives = MAX_LIVES;
+        correctAnswer = -1;
+        return true;
+    }
+    document.getElementById('count').innerHTML = 'Lives count:' + lives;
 }
 
 function positionChecked(letter) {
