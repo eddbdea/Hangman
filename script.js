@@ -33,7 +33,7 @@ function createGameBoard() {
 createGameBoard();
 
 function submitSearchLetter() {
-    let letter = document.getElementById('letter').value;
+    const letter = document.getElementById('letter').value;
     document.getElementById('letter').value = '';
     let index = positionChecked(letter);
     ++frq[index];
