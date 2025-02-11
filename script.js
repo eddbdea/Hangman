@@ -33,8 +33,9 @@ function createGameBoard() {
 createGameBoard();
 
 function submitSearchLetter() {
-    const letter = document.getElementById('letter').value;
-    document.getElementById('letter').value = '';
+    const inputElement = document.getElementById('letter');
+    const letter = inputElement.value;
+    inputElement.value = '';
     let index = positionChecked(letter);
     ++frq[index];
     gameStatus(index);
