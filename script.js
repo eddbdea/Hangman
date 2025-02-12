@@ -1,10 +1,11 @@
 const words = ['bag', 'apple', 'phone', 'night', 'dog', 'summer'];
 const MAX_LIVES = 7;
 const PAGE_RELOAD_SPEED = 3000;
+const winningMessage = document.getElementById('count');
 let lives = MAX_LIVES;
 let correctAnswer = -1;
 let choosenWord = [];
-const frq = new Array();
+const frq = [];
 
 function randomNumber() {
     const maxLength = words.length;
@@ -55,26 +56,18 @@ function gameStatus(index) {
 
 function isWinner() {
     if (lives > 0 && correctAnswer === choosenWord.length - 1) {
-        document.getElementById('count').innerHTML = 'You won!';
-        setTimeout(function () {
-            location.reload();
-        }, PAGE_RELOAD_SPEED);
-        lives = MAX_LIVES;
-        correctAnswer = -1;
+        winningMessage.innerHTML = 'You won!';
+        restargGame();
     }
 }
 
 function isLooser() {
     if (lives === 0 && correctAnswer < choosenWord.length) {
-        document.getElementById('count').innerHTML = 'You lost!';
-        setTimeout(function () {
-            location.reload();
-        }, PAGE_RELOAD_SPEED);
-        lives = MAX_LIVES;
-        correctAnswer = -1;
+        winningMessage.innerHTML = 'You lost!';
+        restargGame();
         return true;
     }
-    document.getElementById('count').innerHTML = 'Lives count:' + lives;
+    winningMessage.innerHTML = 'Lives count:' + lives;
 }
 
 function positionChecked(letter) {
@@ -83,4 +76,12 @@ function positionChecked(letter) {
         index = choosenWord.indexOf(letter, index + 1);
     }
     return index;
+}
+
+function restargGame() {
+    setTimeout(function () {
+        location.reload();
+    }, PAGE_RELOAD_SPEED);
+    lives = MAX_LIVES;
+    correctAnswer = -1;
 }
