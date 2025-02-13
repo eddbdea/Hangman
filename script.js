@@ -57,14 +57,14 @@ function gameStatus(index) {
 function isWinner() {
     if (lives > 0 && correctAnswer === choosenWord.length - 1) {
         winningMessage.innerHTML = 'You won!';
-        restargGame();
+        restartGame();
     }
 }
 
 function isLooser() {
     if (lives === 0 && correctAnswer < choosenWord.length) {
         winningMessage.innerHTML = 'You lost!';
-        restargGame();
+        restartGame();
         return true;
     }
     winningMessage.innerHTML = 'Lives count:' + lives;
@@ -78,7 +78,7 @@ function positionChecked(letter) {
     return index;
 }
 
-function restargGame() {
+function restartGame() {
     setTimeout(function () {
         location.reload();
     }, PAGE_RELOAD_SPEED);
